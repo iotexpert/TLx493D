@@ -1,0 +1,217 @@
+\hypertarget{interface_8h}{}\section{interface.\+h File Reference}
+\label{interface_8h}\index{interface.\+h@{interface.\+h}}
+
+
+Generic Library interface to the peripheral drivers.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{interface_8h_abb6da080fc2c3af066f84b6e5e789535}{\+\_\+\+I2\+C\+\_\+read}}
+\begin{DoxyCompactList}\small\item\em Function Header\+: (uint8\+\_\+t addr, uint8\+\_\+t $\ast$data, uint8\+\_\+t count) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_ab7246a23c69b86702d92fdc47e6bce36}{\+\_\+\+I2\+C\+\_\+write}}
+\begin{DoxyCompactList}\small\item\em Function Header\+: (uint8\+\_\+t addr, const uint8\+\_\+t$\ast$ data, uint8\+\_\+t count) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_a0e255fbd0891d9589cc34ad66c6c99f0}{\+\_\+\+I2\+C\+\_\+recover}}()
+\begin{DoxyCompactList}\small\item\em Function Header\+: (void) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_a4d8cef12db083155e8acaeb87ad082d4}{\+\_\+\+I2\+C\+\_\+reset}}()
+\begin{DoxyCompactList}\small\item\em Function Header\+: (void) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_a32351c63a8df7f89a4e048593a5e78cf}{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT}}(high)
+\begin{DoxyCompactList}\small\item\em Function Header\+: (bool high) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_a049c9e0574db2668751f73dcacaacfe7}{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE}}()
+\begin{DoxyCompactList}\small\item\em Function Header\+: (void) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_abadb0076439c5df777bd4e545d82dcce}{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}}()
+\begin{DoxyCompactList}\small\item\em Function Header\+: (void) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{interface_8h_a6f176877e2df75035e449d4be3363a8d}{\+\_\+\+L\+O\+G\+\_\+\+S\+TR}}(buff,  len)
+\begin{DoxyCompactList}\small\item\em Function Header\+: (void $\ast$data, uint32\+\_\+t count) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic Library interface to the peripheral drivers. 
+
+The purpose of this file is to connect microcontroller dependent functions to the generic T\+Lx493D library which is microcontroller agnostic. The functions specified below are needed for the normal functioning of the sensor.
+
+In order to interface the the T\+Lx493D (this library) to some microcontroller, several functions need to be implemented and then they should be specified in this file (\mbox{\hyperlink{interface_8h}{interface.\+h}}). For example, in order to implement reading from the I2C bus, which is needed by the library, a function like the following is required\+: 
+\begin{DoxyCode}
+int32\_t I2C\_read\_device\_specific(uint8\_t addr, uint8\_t *data, uint8\_t count) \{
+    int32\_t status;
+
+    \textcolor{comment}{// Read from I2C and assign status variable}
+
+    \textcolor{keywordflow}{return} status;
+\}
+\end{DoxyCode}
+ The this function should be specified below as such 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define \_I2C\_read I2C\_read\_device\_specific}
+\end{DoxyCode}
+ Please refer to the following \#defines for information about the required implementation.
+
+Note\+: A\+LL I2C functions should return a positive value of type int32\+\_\+t (defined in stdint.\+h) indicating some communication error or Zero(0) indicating a successful communication. The positive return values themselves, aside from indicating an error, are meaningless to the library and thus can be arbitrarily chosen by the user as seen fit. Negative return value are reserved and used internally by the generic library, thus no function referred in this library should return a negative error as it may collide with the library reserved return value! 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{interface_8h_abb6da080fc2c3af066f84b6e5e789535}\label{interface_8h_abb6da080fc2c3af066f84b6e5e789535}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+I2\+C\+\_\+read@{\+\_\+\+I2\+C\+\_\+read}}
+\index{\+\_\+\+I2\+C\+\_\+read@{\+\_\+\+I2\+C\+\_\+read}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+I2\+C\+\_\+read}{\_I2C\_read}}
+{\footnotesize\ttfamily \#define \+\_\+\+I2\+C\+\_\+read}
+
+
+
+Function Header\+: (uint8\+\_\+t addr, uint8\+\_\+t $\ast$data, uint8\+\_\+t count) 
+
+I2C read command must have a header precisely of type\+: (uint8\+\_\+t addr, uint8\+\_\+t $\ast$data, uint8\+\_\+t count)\+: 
+\begin{DoxyParams}{Parameters}
+{\em addr} & The I2C address of the sensor \\
+\hline
+{\em data} & The array that the function will read to \\
+\hline
+{\em count} & The number of bytes the function will read\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+\textcolor{comment}{// =================== EXAMPLE ===================}
+\textcolor{comment}{// Read 10 bytes from the I2C device with address 0x63}
+\textcolor{comment}{// to the array data\_ptr}
+\textcolor{comment}{// The error code will be written to error. On success}
+\textcolor{comment}{// it will be 0 (Zero).}
+uint8\_t data\_ptr[10];
+error = \mbox{\hyperlink{interface_8h_abb6da080fc2c3af066f84b6e5e789535}{\_I2C\_read}}(0x23, data\_ptr, 10);
+\end{DoxyCode}
+ \mbox{\Hypertarget{interface_8h_a0e255fbd0891d9589cc34ad66c6c99f0}\label{interface_8h_a0e255fbd0891d9589cc34ad66c6c99f0}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+I2\+C\+\_\+recover@{\+\_\+\+I2\+C\+\_\+recover}}
+\index{\+\_\+\+I2\+C\+\_\+recover@{\+\_\+\+I2\+C\+\_\+recover}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+I2\+C\+\_\+recover}{\_I2C\_recover}}
+{\footnotesize\ttfamily \#define \+\_\+\+I2\+C\+\_\+recover(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function Header\+: (void) 
+
+\+\_\+\+I2\+C\+\_\+recover should take no parameter. It will write the recover address (FF) on the I2C bus 
+\begin{DoxyCode}
+\textcolor{comment}{// ============ EXAMPLE ==============}
+\textcolor{comment}{// Perform am I2C recovery command}
+\mbox{\hyperlink{interface_8h_a0e255fbd0891d9589cc34ad66c6c99f0}{\_I2C\_recover}}();
+\end{DoxyCode}
+ \mbox{\Hypertarget{interface_8h_a4d8cef12db083155e8acaeb87ad082d4}\label{interface_8h_a4d8cef12db083155e8acaeb87ad082d4}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+I2\+C\+\_\+reset@{\+\_\+\+I2\+C\+\_\+reset}}
+\index{\+\_\+\+I2\+C\+\_\+reset@{\+\_\+\+I2\+C\+\_\+reset}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+I2\+C\+\_\+reset}{\_I2C\_reset}}
+{\footnotesize\ttfamily \#define \+\_\+\+I2\+C\+\_\+reset(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function Header\+: (void) 
+
+\+\_\+\+I2\+C\+\_\+reset should take no parameter. It will write the reset address (00) on the I2C bus 
+\begin{DoxyCode}
+\textcolor{comment}{// ============ EXAMPLE ==============}
+\textcolor{comment}{// Perform am I2C reset command}
+\mbox{\hyperlink{interface_8h_a4d8cef12db083155e8acaeb87ad082d4}{\_I2C\_reset}}();
+\end{DoxyCode}
+ \mbox{\Hypertarget{interface_8h_ab7246a23c69b86702d92fdc47e6bce36}\label{interface_8h_ab7246a23c69b86702d92fdc47e6bce36}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+I2\+C\+\_\+write@{\+\_\+\+I2\+C\+\_\+write}}
+\index{\+\_\+\+I2\+C\+\_\+write@{\+\_\+\+I2\+C\+\_\+write}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+I2\+C\+\_\+write}{\_I2C\_write}}
+{\footnotesize\ttfamily \#define \+\_\+\+I2\+C\+\_\+write}
+
+
+
+Function Header\+: (uint8\+\_\+t addr, const uint8\+\_\+t$\ast$ data, uint8\+\_\+t count) 
+
+I2C write command must have a header precisely of type\+: (uint8\+\_\+t addr, const uint8\+\_\+t$\ast$ data, uint8\+\_\+t count), where\+: 
+\begin{DoxyParams}{Parameters}
+{\em addr} & Is the I2C address to read from data is the; \\
+\hline
+{\em data} & is the array that the function will read to \\
+\hline
+{\em count} & is the number of bytes the function will read\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+\textcolor{comment}{// =============== EXAMPLE ================}
+uint8\_t payload[] = \{5, 1, 2, 3\};
+\textcolor{comment}{// write 4 bytes from payload to the I2C device with address 0x23}
+error = \mbox{\hyperlink{interface_8h_ab7246a23c69b86702d92fdc47e6bce36}{\_I2C\_write}}(0x23, payload, 4);
+\end{DoxyCode}
+ \mbox{\Hypertarget{interface_8h_a6f176877e2df75035e449d4be3363a8d}\label{interface_8h_a6f176877e2df75035e449d4be3363a8d}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+L\+O\+G\+\_\+\+S\+TR@{\+\_\+\+L\+O\+G\+\_\+\+S\+TR}}
+\index{\+\_\+\+L\+O\+G\+\_\+\+S\+TR@{\+\_\+\+L\+O\+G\+\_\+\+S\+TR}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+L\+O\+G\+\_\+\+S\+TR}{\_LOG\_STR}}
+{\footnotesize\ttfamily \#define \+\_\+\+L\+O\+G\+\_\+\+S\+TR(\begin{DoxyParamCaption}\item[{}]{buff,  }\item[{}]{len }\end{DoxyParamCaption})}
+
+
+
+Function Header\+: (void $\ast$data, uint32\+\_\+t count) 
+
+Offers a method to log a string. The header of the method should be of type (void $\ast$data, uint32\+\_\+t count) 
+\begin{DoxyParams}{Parameters}
+{\em data} & An array of unit8\+\_\+t to be written \\
+\hline
+{\em count} & The number of bytes to be written 
+\begin{DoxyCode}
+\textcolor{comment}{// ============ EXAMPLE ==============}
+\textcolor{comment}{// log the string 'Example'}
+\mbox{\hyperlink{interface_8h_a6f176877e2df75035e449d4be3363a8d}{\_LOG\_STR}}(\textcolor{stringliteral}{"Example"}, \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"Example"}) - 1);
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_abadb0076439c5df777bd4e545d82dcce}\label{interface_8h_abadb0076439c5df777bd4e545d82dcce}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE@{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE@{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}{\_POWER\_DISABLE}}
+{\footnotesize\ttfamily \#define \+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function Header\+: (void) 
+
+Set the pin responsible with supplying the sensor voltage to L\+OW. The function will be called with no arguments. 
+\begin{DoxyCode}
+\textcolor{comment}{// ============ EXAMPLE ==============}
+\textcolor{comment}{// Power Down the sensor}
+\mbox{\hyperlink{interface_8h_abadb0076439c5df777bd4e545d82dcce}{\_POWER\_DISABLE}}();
+\end{DoxyCode}
+ \mbox{\Hypertarget{interface_8h_a049c9e0574db2668751f73dcacaacfe7}\label{interface_8h_a049c9e0574db2668751f73dcacaacfe7}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE@{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE}}
+\index{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE@{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE}{\_POWER\_ENABLE}}
+{\footnotesize\ttfamily \#define \+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function Header\+: (void) 
+
+Set the pin responsible with supplying the sensor voltage to H\+I\+GH. The function will be called with no arguments. 
+\begin{DoxyCode}
+\textcolor{comment}{// ============ EXAMPLE ==============}
+\textcolor{comment}{// Power Up the sensor}
+\mbox{\hyperlink{interface_8h_a049c9e0574db2668751f73dcacaacfe7}{\_POWER\_ENABLE}}();
+\end{DoxyCode}
+ \mbox{\Hypertarget{interface_8h_a32351c63a8df7f89a4e048593a5e78cf}\label{interface_8h_a32351c63a8df7f89a4e048593a5e78cf}} 
+\index{interface.\+h@{interface.\+h}!\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT@{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT}}
+\index{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT@{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT}{\_SET\_ADDR\_AND\_WAIT}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT(\begin{DoxyParamCaption}\item[{}]{high }\end{DoxyParamCaption})}
+
+
+
+Function Header\+: (bool high) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em high} & A value of {\bfseries  true } will set the A\+D\+DR pin H\+I\+GH at sensor power up, and a value of {\bfseries  false } will set the A\+D\+DR pin to L\+OW at sensor power up.\\
+\hline
+\end{DoxyParams}
+Set the desired level on A\+D\+D\+R(\+S\+D\+A) pin and wait at least 200us. Header should be of type (bool high) where\+: \mbox{\hyperlink{interface_8h_a32351c63a8df7f89a4e048593a5e78cf}{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+I\+T(true)}} will set the A\+D\+D\+R(\+S\+D\+A) line to H\+I\+GH and then wait for at least 200us. \mbox{\hyperlink{interface_8h_a32351c63a8df7f89a4e048593a5e78cf}{\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+I\+T(false)}} will set the A\+D\+D\+R(\+S\+D\+A) line to L\+OW and then wait for at least 200us. Finally, the S\+DA line should be set back to H\+I\+GH. 
+\begin{DoxyCode}
+\textcolor{comment}{// =========== EXAMPLE ===========}
+\textcolor{comment}{// set voltage on ADDR pin to low and wait for sensor startup}
+\mbox{\hyperlink{interface_8h_a32351c63a8df7f89a4e048593a5e78cf}{\_SET\_ADDR\_AND\_WAIT}}(\textcolor{keyword}{false});
+\end{DoxyCode}
+ 

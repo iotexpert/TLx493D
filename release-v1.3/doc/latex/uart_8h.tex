@@ -1,0 +1,35 @@
+\hypertarget{uart_8h}{}\section{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/uart/uart.h File Reference}
+\label{uart_8h}\index{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/uart/uart.\+h@{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/uart/uart.\+h}}
+
+
+U\+A\+RT Driver for X\+M\+C1100 U\+S\+IC Module.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{uart_8h_ab60a36f7295d704926120d22f806dcd1}\label{uart_8h_ab60a36f7295d704926120d22f806dcd1}} 
+void \mbox{\hyperlink{uart_8h_ab60a36f7295d704926120d22f806dcd1}{U\+A\+R\+T\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the U\+A\+RT peripheral. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8h_a3fc88f12da64028243f0b773093163b6}\label{uart_8h_a3fc88f12da64028243f0b773093163b6}} 
+uint8\+\_\+t \mbox{\hyperlink{uart_8h_a3fc88f12da64028243f0b773093163b6}{U\+A\+R\+T\+\_\+available}} (void)
+\begin{DoxyCompactList}\small\item\em Return number of bytes available for reading. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8h_ab9d916b533d06da6c8f5990a5ffa65d3}\label{uart_8h_ab9d916b533d06da6c8f5990a5ffa65d3}} 
+void \mbox{\hyperlink{uart_8h_ab9d916b533d06da6c8f5990a5ffa65d3}{U\+A\+R\+T\+\_\+read}} (uint8\+\_\+t $\ast$data, uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Read count bytes to the data array. If not enough bytes available, will block until available. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8h_a8e1ffcd13d3c3ba0be5dfc95d4351148}\label{uart_8h_a8e1ffcd13d3c3ba0be5dfc95d4351148}} 
+uint8\+\_\+t \mbox{\hyperlink{uart_8h_a8e1ffcd13d3c3ba0be5dfc95d4351148}{U\+A\+R\+T\+\_\+read\+\_\+byte}} (void)
+\begin{DoxyCompactList}\small\item\em Read last received data byte. Not blocking. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8h_aa43f0eb079b9af85fb2e7e2a7fd5f081}\label{uart_8h_aa43f0eb079b9af85fb2e7e2a7fd5f081}} 
+void \mbox{\hyperlink{uart_8h_aa43f0eb079b9af85fb2e7e2a7fd5f081}{U\+A\+R\+T\+\_\+clear\+\_\+rx\+\_\+fifo}} (void)
+\begin{DoxyCompactList}\small\item\em Discard all data from the receive F\+I\+FO buffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8h_a64356e35c73a698874871535facb447f}\label{uart_8h_a64356e35c73a698874871535facb447f}} 
+void \mbox{\hyperlink{uart_8h_a64356e35c73a698874871535facb447f}{U\+A\+R\+T\+\_\+write}} (void $\ast$data, uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Write count bytes from the data array to U\+A\+RT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+A\+RT Driver for X\+M\+C1100 U\+S\+IC Module. 
+

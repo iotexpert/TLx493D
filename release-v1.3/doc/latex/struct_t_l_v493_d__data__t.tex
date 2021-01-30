@@ -1,0 +1,40 @@
+\hypertarget{struct_t_l_v493_d__data__t}{}\section{T\+L\+V493\+D\+\_\+data\+\_\+t Struct Reference}
+\label{struct_t_l_v493_d__data__t}\index{T\+L\+V493\+D\+\_\+data\+\_\+t@{T\+L\+V493\+D\+\_\+data\+\_\+t}}
+
+
+Data structure containing information about the internal state of a sensor. Also used to identify a sensor on a bus.  
+
+
+
+
+{\ttfamily \#include $<$T\+L\+V\+\_\+\+A1\+B6.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}\label{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}} 
+uint8\+\_\+t \mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{I\+I\+C\+\_\+addr}}
+\begin{DoxyCompactList}\small\item\em I2C address to be written on the bus for sensor addressing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_t_l_v493_d__data__t_ae3fa7cdfdb0d25150ef720ed5bfd454e}\label{struct_t_l_v493_d__data__t_ae3fa7cdfdb0d25150ef720ed5bfd454e}} 
+uint8\+\_\+t \mbox{\hyperlink{struct_t_l_v493_d__data__t_ae3fa7cdfdb0d25150ef720ed5bfd454e}{frame\+\_\+count}}
+\begin{DoxyCompactList}\small\item\em Last frame value from the sensor A\+DC used to detect a stuck A\+DC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_t_l_v493_d__data__t_a8a51c7727a7a5f47c292448920dbe223}\label{struct_t_l_v493_d__data__t_a8a51c7727a7a5f47c292448920dbe223}} 
+\mbox{\hyperlink{_t_l_v___a1_b6_8h_a8feabf3c07e764c773a5632a3f72461b}{T\+L\+V493\+D\+\_\+address\+\_\+t}} \mbox{\hyperlink{struct_t_l_v493_d__data__t_a8a51c7727a7a5f47c292448920dbe223}{addr\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type of I2C address (addr bit unspecified) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_t_l_v493_d__data__t_a4588d378150e39eedf7c85afb5cb6354}\label{struct_t_l_v493_d__data__t_a4588d378150e39eedf7c85afb5cb6354}} 
+bool \mbox{\hyperlink{struct_t_l_v493_d__data__t_a4588d378150e39eedf7c85afb5cb6354}{A\+D\+D\+R\+\_\+high}}
+\begin{DoxyCompactList}\small\item\em Address bit, representing state of A\+D\+DR line at power up. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_t_l_v493_d__data__t_a8160052cc383f9ec602c96f41922952b}\label{struct_t_l_v493_d__data__t_a8160052cc383f9ec602c96f41922952b}} 
+\mbox{\hyperlink{struct_t_l_v493_d__regmap__read__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}} \mbox{\hyperlink{struct_t_l_v493_d__data__t_a8160052cc383f9ec602c96f41922952b}{regmap\+\_\+read}}
+\begin{DoxyCompactList}\small\item\em Last known state of the Read registers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_t_l_v493_d__data__t_aa17835fca124976dc402c4305da2b724}\label{struct_t_l_v493_d__data__t_aa17835fca124976dc402c4305da2b724}} 
+\mbox{\hyperlink{struct_t_l_v493_d__regmap__write__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+write\+\_\+t}} \mbox{\hyperlink{struct_t_l_v493_d__data__t_aa17835fca124976dc402c4305da2b724}{regmap\+\_\+write}}
+\begin{DoxyCompactList}\small\item\em Last known state of the Write registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data structure containing information about the internal state of a sensor. Also used to identify a sensor on a bus. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_t_l_v___a1_b6_8h}{T\+L\+V\+\_\+\+A1\+B6.\+h}}\end{DoxyCompactItemize}

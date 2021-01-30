@@ -1,0 +1,160 @@
+\begin{theindex}
+
+  \item {\+\_\+\+I2\+C\+\_\+read}
+    \subitem {interface.\+h}, \hyperpage{16}
+  \item {\+\_\+\+I2\+C\+\_\+recover}
+    \subitem {interface.\+h}, \hyperpage{17}
+  \item {\+\_\+\+I2\+C\+\_\+reset}
+    \subitem {interface.\+h}, \hyperpage{17}
+  \item {\+\_\+\+I2\+C\+\_\+write}
+    \subitem {interface.\+h}, \hyperpage{17}
+  \item {\+\_\+\+L\+O\+G\+\_\+\+S\+TR}
+    \subitem {interface.\+h}, \hyperpage{18}
+  \item {\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}
+    \subitem {interface.\+h}, \hyperpage{18}
+  \item {\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE}
+    \subitem {interface.\+h}, \hyperpage{18}
+  \item {\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT}
+    \subitem {interface.\+h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {debug.\+h}, \hyperpage{15}
+
+  \indexspace
+
+  \item {interface.\+h}, \hyperpage{15}
+    \subitem {\+\_\+\+I2\+C\+\_\+read}, \hyperpage{16}
+    \subitem {\+\_\+\+I2\+C\+\_\+recover}, \hyperpage{17}
+    \subitem {\+\_\+\+I2\+C\+\_\+reset}, \hyperpage{17}
+    \subitem {\+\_\+\+I2\+C\+\_\+write}, \hyperpage{17}
+    \subitem {\+\_\+\+L\+O\+G\+\_\+\+S\+TR}, \hyperpage{18}
+    \subitem {\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}, 
+		\hyperpage{18}
+    \subitem {\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+LE}, 
+		\hyperpage{18}
+    \subitem {\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+\_\+\+A\+N\+D\+\_\+\+W\+A\+IT}, 
+		\hyperpage{19}
+
+  \indexspace
+
+  \item {M\+I\+S\+C\+\_\+get\+\_\+parity}
+    \subitem {T\+Lx493\+D.\+c}, \hyperpage{40}
+    \subitem {T\+Lx493\+D.\+h}, \hyperpage{42}
+  \item {M\+I\+S\+C\+\_\+memcpy}
+    \subitem {misc.\+h}, \hyperpage{20}
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{20}
+  \item {main.\+c}, \hyperpage{19}
+    \subitem {main}, \hyperpage{20}
+  \item {misc.\+h}, \hyperpage{20}
+    \subitem {M\+I\+S\+C\+\_\+memcpy}, \hyperpage{20}
+
+  \indexspace
+
+  \item {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6.\+c}, \hyperpage{22}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6.\+h}, \hyperpage{23}
+  \item {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6.\+c}, \hyperpage{22}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6.\+h}, \hyperpage{24}
+  \item {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+init}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6.\+h}, \hyperpage{24}
+  \item {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+c}, \hyperpage{28}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}, \hyperpage{29}
+  \item {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+c}, \hyperpage{28}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}, \hyperpage{30}
+  \item {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+c}, \hyperpage{29}
+    \subitem {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}, \hyperpage{30}
+  \item {T\+L\+E493\+D\+\_\+data\+\_\+t}, \hyperpage{11}
+  \item {T\+L\+E493\+D\+\_\+regmap\+\_\+t}, \hyperpage{11}
+  \item {T\+L\+E\+\_\+\+A\+W2\+B6.\+c}, \hyperpage{21}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit}, 
+		\hyperpage{22}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit}, 
+		\hyperpage{22}
+  \item {T\+L\+E\+\_\+\+A\+W2\+B6.\+h}, \hyperpage{22}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit}, 
+		\hyperpage{23}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit}, 
+		\hyperpage{24}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+init}, \hyperpage{24}
+  \item {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+defines.\+h}, \hyperpage{24}
+  \item {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+c}, \hyperpage{27}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs}, 
+		\hyperpage{28}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg}, 
+		\hyperpage{28}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi}, 
+		\hyperpage{29}
+  \item {T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}, \hyperpage{29}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs}, 
+		\hyperpage{29}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg}, 
+		\hyperpage{30}
+    \subitem {T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi}, 
+		\hyperpage{30}
+  \item {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6.\+c}, \hyperpage{31}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6.\+h}, \hyperpage{34}
+  \item {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6.\+c}, \hyperpage{32}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6.\+h}, \hyperpage{34}
+  \item {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+c}, \hyperpage{37}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}, \hyperpage{38}
+  \item {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+c}, \hyperpage{37}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}, \hyperpage{39}
+  \item {T\+L\+V493\+D\+\_\+address\+\_\+t}
+    \subitem {T\+L\+V\+\_\+\+A1\+B6.\+h}, \hyperpage{33}
+  \item {T\+L\+V493\+D\+\_\+data\+\_\+t}, \hyperpage{12}
+  \item {T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}, \hyperpage{13}
+  \item {T\+L\+V493\+D\+\_\+regmap\+\_\+write\+\_\+t}, \hyperpage{13}
+  \item {T\+L\+V\+\_\+\+A1\+B6.\+c}, \hyperpage{31}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure}, 
+		\hyperpage{31}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init}, \hyperpage{32}
+  \item {T\+L\+V\+\_\+\+A1\+B6.\+h}, \hyperpage{32}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure}, 
+		\hyperpage{34}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init}, \hyperpage{34}
+    \subitem {T\+L\+V493\+D\+\_\+address\+\_\+t}, \hyperpage{33}
+  \item {T\+L\+V\+\_\+\+A1\+B6\+\_\+defines.\+h}, \hyperpage{34}
+  \item {T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+c}, \hyperpage{36}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs}, 
+		\hyperpage{37}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs}, 
+		\hyperpage{37}
+  \item {T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}, \hyperpage{38}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs}, 
+		\hyperpage{38}
+    \subitem {T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs}, 
+		\hyperpage{39}
+  \item {T\+Lx493\+D.\+c}, \hyperpage{39}
+    \subitem {M\+I\+S\+C\+\_\+get\+\_\+parity}, \hyperpage{40}
+    \subitem {T\+Lx493\+D\+\_\+init}, \hyperpage{40}
+    \subitem {T\+Lx493\+D\+\_\+read\+\_\+frame}, \hyperpage{40}
+    \subitem {T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode}, 
+		\hyperpage{40}
+  \item {T\+Lx493\+D.\+h}, \hyperpage{41}
+    \subitem {M\+I\+S\+C\+\_\+get\+\_\+parity}, \hyperpage{42}
+    \subitem {T\+Lx493\+D\+\_\+init}, \hyperpage{42}
+    \subitem {T\+Lx493\+D\+\_\+read\+\_\+frame}, \hyperpage{43}
+    \subitem {T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode}, 
+		\hyperpage{43}
+  \item {T\+Lx493\+D\+\_\+data\+\_\+frame\+\_\+t}, \hyperpage{14}
+  \item {T\+Lx493\+D\+\_\+init}
+    \subitem {T\+Lx493\+D.\+c}, \hyperpage{40}
+    \subitem {T\+Lx493\+D.\+h}, \hyperpage{42}
+  \item {T\+Lx493\+D\+\_\+read\+\_\+frame}
+    \subitem {T\+Lx493\+D.\+c}, \hyperpage{40}
+    \subitem {T\+Lx493\+D.\+h}, \hyperpage{43}
+  \item {T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode}
+    \subitem {T\+Lx493\+D.\+c}, \hyperpage{40}
+    \subitem {T\+Lx493\+D.\+h}, \hyperpage{43}
+
+\end{theindex}

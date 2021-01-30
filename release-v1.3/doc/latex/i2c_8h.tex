@@ -1,0 +1,107 @@
+\hypertarget{i2c_8h}{}\section{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/i2c/i2c.h File Reference}
+\label{i2c_8h}\index{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/i2c/i2c.\+h@{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/i2c/i2c.\+h}}
+
+
+I2C Driver for X\+M\+C1100 U\+S\+IC Module.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{i2c_8h_aa5a5b0b14f31a9a6717710cd1b837110}\label{i2c_8h_aa5a5b0b14f31a9a6717710cd1b837110}} 
+enum \mbox{\hyperlink{i2c_8h_aa5a5b0b14f31a9a6717710cd1b837110}{I2\+C\+\_\+status\+\_\+t}} \{ {\bfseries I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK} = 0, 
+{\bfseries I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+T\+I\+M\+E\+O\+UT} = 1, 
+{\bfseries I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY} = 2, 
+{\bfseries I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+A\+CK} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Status values returned by the I2C read/write commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{i2c_8h_a9ff51ddf1d325776fef90cce0223772b}\label{i2c_8h_a9ff51ddf1d325776fef90cce0223772b}} 
+void \mbox{\hyperlink{i2c_8h_a9ff51ddf1d325776fef90cce0223772b}{I2\+C\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the I2C peripheral. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_af37155e9ada1057a09e99267760dfa15}\label{i2c_8h_af37155e9ada1057a09e99267760dfa15}} 
+void \mbox{\hyperlink{i2c_8h_af37155e9ada1057a09e99267760dfa15}{I2\+C\+\_\+enable}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the I2C channel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_a32a50167f57b71fa2289886fb7bd9782}\label{i2c_8h_a32a50167f57b71fa2289886fb7bd9782}} 
+void \mbox{\hyperlink{i2c_8h_a32a50167f57b71fa2289886fb7bd9782}{I2\+C\+\_\+disable}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the I2C channel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_a893fe413e5d85068beec081b8dbe5b2d}\label{i2c_8h_a893fe413e5d85068beec081b8dbe5b2d}} 
+void \mbox{\hyperlink{i2c_8h_a893fe413e5d85068beec081b8dbe5b2d}{I2\+C\+\_\+mode\+\_\+normal}} (void)
+\begin{DoxyCompactList}\small\item\em Connect S\+DA and S\+CL pins to the I2C peripheral. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_a9856f730a1b634637da3fdafc0270644}\label{i2c_8h_a9856f730a1b634637da3fdafc0270644}} 
+void \mbox{\hyperlink{i2c_8h_a9856f730a1b634637da3fdafc0270644}{I2\+C\+\_\+mode\+\_\+gpio\+\_\+input}} (void)
+\begin{DoxyCompactList}\small\item\em Switch I2C pins to G\+P\+IO mode Disconnect S\+DA and S\+CL pins from the I2C peripheral. Configure them as G\+P\+IO inputs (in order to avoid unintended input signals to the I2C peripheral that will cause it to freeze) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_a3a1c31f3a756b3befdff4d9189397c4f}\label{i2c_8h_a3a1c31f3a756b3befdff4d9189397c4f}} 
+void \mbox{\hyperlink{i2c_8h_a3a1c31f3a756b3befdff4d9189397c4f}{I2\+C\+\_\+peripheral\+\_\+recover}} (void) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated))
+\begin{DoxyCompactList}\small\item\em Recovery procedure according to X\+M\+C1100 Errata Sheet. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{i2c_8h_ac6833d781fe60efb5d787c27d1d9bd73}{I2\+C\+\_\+read}} (uint8\+\_\+t addr, uint8\+\_\+t $\ast$data, uint8\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Read a number of bytes from an I2C device to a {\bfseries uint8\+\_\+t} array. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{i2c_8h_a41ae6d693e173f684b4fc1186136d0ad}{I2\+C\+\_\+write}} (uint8\+\_\+t addr, const uint8\+\_\+t $\ast$data, uint8\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Write a number of {\bfseries uint8\+\_\+t} bytes to an I2C device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c_8h_a4cc26d40bc6f38ec2afd921d2cda077e}{I2\+C\+\_\+wait\+\_\+transmit}} (void)
+\begin{DoxyCompactList}\small\item\em Wait for an I2C transmission to end. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_a8cd1d26d9785834aadba14fa997450f6}\label{i2c_8h_a8cd1d26d9785834aadba14fa997450f6}} 
+void \mbox{\hyperlink{i2c_8h_a8cd1d26d9785834aadba14fa997450f6}{I2\+C\+\_\+write\+\_\+recover}} (void)
+\begin{DoxyCompactList}\small\item\em Write FF (the recover value) to the I2C Bus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{i2c_8h_a5f582d933e6c2955d46dc5d114e98b03}\label{i2c_8h_a5f582d933e6c2955d46dc5d114e98b03}} 
+void \mbox{\hyperlink{i2c_8h_a5f582d933e6c2955d46dc5d114e98b03}{I2\+C\+\_\+write\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em Write 00 (the reset value) to the I2C Bus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I2C Driver for X\+M\+C1100 U\+S\+IC Module. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{i2c_8h_ac6833d781fe60efb5d787c27d1d9bd73}\label{i2c_8h_ac6833d781fe60efb5d787c27d1d9bd73}} 
+\index{i2c.\+h@{i2c.\+h}!I2\+C\+\_\+read@{I2\+C\+\_\+read}}
+\index{I2\+C\+\_\+read@{I2\+C\+\_\+read}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{I2\+C\+\_\+read()}{I2C\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t I2\+C\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint8\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Read a number of bytes from an I2C device to a {\bfseries uint8\+\_\+t} array. 
+
+Read {\bfseries count} bytes from the device with the given I2C address to the data array 
+\begin{DoxyParams}{Parameters}
+{\em addr} & I2C device address. \\
+\hline
+{\em data} & Address where the data should be stored. \\
+\hline
+{\em count} & Number of bytes to be read from the device to the {\bfseries data} array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{i2c_8h_a4cc26d40bc6f38ec2afd921d2cda077e}\label{i2c_8h_a4cc26d40bc6f38ec2afd921d2cda077e}} 
+\index{i2c.\+h@{i2c.\+h}!I2\+C\+\_\+wait\+\_\+transmit@{I2\+C\+\_\+wait\+\_\+transmit}}
+\index{I2\+C\+\_\+wait\+\_\+transmit@{I2\+C\+\_\+wait\+\_\+transmit}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{I2\+C\+\_\+wait\+\_\+transmit()}{I2C\_wait\_transmit()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+wait\+\_\+transmit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Wait for an I2C transmission to end. 
+
+Blocks the program execution until the last I2C operation is completed. \mbox{\Hypertarget{i2c_8h_a41ae6d693e173f684b4fc1186136d0ad}\label{i2c_8h_a41ae6d693e173f684b4fc1186136d0ad}} 
+\index{i2c.\+h@{i2c.\+h}!I2\+C\+\_\+write@{I2\+C\+\_\+write}}
+\index{I2\+C\+\_\+write@{I2\+C\+\_\+write}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{I2\+C\+\_\+write()}{I2C\_write()}}
+{\footnotesize\ttfamily int32\+\_\+t I2\+C\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{uint8\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Write a number of {\bfseries uint8\+\_\+t} bytes to an I2C device. 
+
+Read {\bfseries count} bytes from the device with the given I2C address to the data array 
+\begin{DoxyParams}{Parameters}
+{\em addr} & I2C device address. \\
+\hline
+{\em data} & Address where the data should be stored. \\
+\hline
+{\em count} & Number of bytes to be read from the device to the {\bfseries data} array \\
+\hline
+\end{DoxyParams}

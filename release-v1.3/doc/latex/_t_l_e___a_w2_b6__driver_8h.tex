@@ -1,0 +1,81 @@
+\hypertarget{_t_l_e___a_w2_b6__driver_8h}{}\section{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h File Reference}
+\label{_t_l_e___a_w2_b6__driver_8h}\index{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+defines.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8h_a535d547547e9e69f39b4aaf7138eb44b}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs}} (uint8\+\_\+t addr, \mbox{\hyperlink{struct_t_l_e493_d__regmap__t}{T\+L\+E493\+D\+\_\+regmap\+\_\+t}} $\ast$regmap, uint8\+\_\+t upto)
+\begin{DoxyCompactList}\small\item\em Read register values from the sensor, starting with the register at address 0 up to register {\bfseries upto} \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8h_a8471b6d4fdaac89ba4f91bd23207acca}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg}} (uint8\+\_\+t i2c\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write the {\bfseries data} value to the {\bfseries reg\+\_\+addr} register on the sensor with the I2C address {\bfseries i2c\+\_\+addr}. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8h_a1947ad89ceb4fae3b5a7aab0a03082a4}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi}} (uint8\+\_\+t addr, uint8\+\_\+t addr\+\_\+reg\+\_\+start, uint8\+\_\+t $\ast$data, uint8\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Write {\bfseries count} bytes from the {\bfseries data} array to the sensor with the I2C address {\bfseries addr}, starting with the register {\bfseries addr\+\_\+reg\+\_\+start}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyWarning}{Warning}
+I\+M\+P\+O\+R\+T\+A\+NT\+: The T\+L\+E493D driver assumes that the 1-\/\+Byte read mode is always activated before any read operation. The 2-\/\+Byte read mode is N\+OT supported! 
+\end{DoxyWarning}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_t_l_e___a_w2_b6__driver_8h_a535d547547e9e69f39b4aaf7138eb44b}\label{_t_l_e___a_w2_b6__driver_8h_a535d547547e9e69f39b4aaf7138eb44b}} 
+\index{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}!T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs}}
+\index{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs}!T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs()}{TLE493D\_AW2B6\_read\_regs()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+regs (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{\mbox{\hyperlink{struct_t_l_e493_d__regmap__t}{T\+L\+E493\+D\+\_\+regmap\+\_\+t}} $\ast$}]{regmap,  }\item[{uint8\+\_\+t}]{upto }\end{DoxyParamCaption})}
+
+
+
+Read register values from the sensor, starting with the register at address 0 up to register {\bfseries upto} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & the I2C address of the sensor; \\
+\hline
+{\em regmap} & Register map structure used to store the read registers of the sensor. \\
+\hline
+{\em upto} & The reading process will start with register 0 and will continue incrementally up to the register {\bfseries upto}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_t_l_e___a_w2_b6__driver_8h_a8471b6d4fdaac89ba4f91bd23207acca}\label{_t_l_e___a_w2_b6__driver_8h_a8471b6d4fdaac89ba4f91bd23207acca}} 
+\index{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}!T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg}}
+\index{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg}!T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg()}{TLE493D\_AW2B6\_write\_reg()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Write the {\bfseries data} value to the {\bfseries reg\+\_\+addr} register on the sensor with the I2C address {\bfseries i2c\+\_\+addr}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+addr} & I2C address of the sensor. \\
+\hline
+{\em reg\+\_\+addr} & Address of the register that is to be written. \\
+\hline
+{\em data} & Data to be written to the register. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_t_l_e___a_w2_b6__driver_8h_a1947ad89ceb4fae3b5a7aab0a03082a4}\label{_t_l_e___a_w2_b6__driver_8h_a1947ad89ceb4fae3b5a7aab0a03082a4}} 
+\index{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}!T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi}}
+\index{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi}!T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h@{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi()}{TLE493D\_AW2B6\_write\_reg\_multi()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+write\+\_\+reg\+\_\+multi (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{addr\+\_\+reg\+\_\+start,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint8\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Write {\bfseries count} bytes from the {\bfseries data} array to the sensor with the I2C address {\bfseries addr}, starting with the register {\bfseries addr\+\_\+reg\+\_\+start}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & I2C sensor address \\
+\hline
+{\em addr\+\_\+reg\+\_\+start} & Address of the first register to be written \\
+\hline
+{\em data} & Data to be written to the registers \\
+\hline
+{\em count} & Number of bytes to be written \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,36 @@
+\hypertarget{sensor_8h}{}\section{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/\+G\+U\+I/sensor/sensor.h File Reference}
+\label{sensor_8h}\index{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/\+G\+U\+I/sensor/sensor.\+h@{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/\+G\+U\+I/sensor/sensor.\+h}}
+
+
+Sensor data frame oversampling and forwarding over U\+A\+RT.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}src/\+T\+Lx493\+D/\+T\+Lx493\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/xmc1100/misc/misc.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sensor_8h_afc79421d6a70156594c9bd952654eb9b}\label{sensor_8h_afc79421d6a70156594c9bd952654eb9b}} 
+void \mbox{\hyperlink{sensor_8h_afc79421d6a70156594c9bd952654eb9b}{G\+U\+I\+\_\+\+U\+A\+R\+T\+\_\+forwarding\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Enable T\+Lx493D data frame forwarding to U\+A\+RT. This operation does not start or stop the periodic sensor sampling. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sensor_8h_a2d631b0a934aa7ba23539b81ff8394cc}\label{sensor_8h_a2d631b0a934aa7ba23539b81ff8394cc}} 
+void \mbox{\hyperlink{sensor_8h_a2d631b0a934aa7ba23539b81ff8394cc}{G\+U\+I\+\_\+\+U\+A\+R\+T\+\_\+forwarding\+\_\+stop}} (void)
+\begin{DoxyCompactList}\small\item\em Disable T\+Lx493D data frame forwarding to U\+A\+RT. This operation does not start or stop the periodic sensor sampling. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sensor_8h_ae7d1722af72185f91ca42a8b7f8b0aa1}\label{sensor_8h_ae7d1722af72185f91ca42a8b7f8b0aa1}} 
+void \mbox{\hyperlink{sensor_8h_ae7d1722af72185f91ca42a8b7f8b0aa1}{G\+U\+I\+\_\+sensor\+\_\+notify\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Announce that there is data ready to be read from the sensor. Notify the G\+U\+I\+\_\+sensor system that there is data available for reading on the sensor. This data will be read on the next {\bfseries G\+U\+I\+\_\+sensor\+\_\+handle\+\_\+\+I2C} call. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sensor_8h_a7ad63830579096a42ac35633dc436176}\label{sensor_8h_a7ad63830579096a42ac35633dc436176}} 
+void \mbox{\hyperlink{sensor_8h_a7ad63830579096a42ac35633dc436176}{G\+U\+I\+\_\+sensor\+\_\+handle\+\_\+\+I2C}} (void)
+\begin{DoxyCompactList}\small\item\em Handle pending I2C communications. Requests data in M\+CM and reads data in all active modes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sensor_8h_aec1afef76e46050534f82f6868ba08e2}\label{sensor_8h_aec1afef76e46050534f82f6868ba08e2}} 
+void \mbox{\hyperlink{sensor_8h_aec1afef76e46050534f82f6868ba08e2}{G\+U\+I\+\_\+sensor\+\_\+handle\+\_\+frame}} (\mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{T\+Lx493\+D\+\_\+data\+\_\+frame\+\_\+t}} frame)
+\begin{DoxyCompactList}\small\item\em Handle data frame oversampling and forwarding to U\+A\+RT if forwarding is enabled. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sensor_8h_a3a1c3dd4da0a3c8b8f50bcb04eb08e02}\label{sensor_8h_a3a1c3dd4da0a3c8b8f50bcb04eb08e02}} 
+void \mbox{\hyperlink{sensor_8h_a3a1c3dd4da0a3c8b8f50bcb04eb08e02}{G\+U\+I\+\_\+sensor\+\_\+reset\+\_\+oversample\+\_\+data}} (void)
+\begin{DoxyCompactList}\small\item\em Reset internal data used for oversampling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sensor data frame oversampling and forwarding over U\+A\+RT. 
+

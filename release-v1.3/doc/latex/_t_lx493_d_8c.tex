@@ -1,0 +1,81 @@
+\hypertarget{_t_lx493_d_8c}{}\section{T\+Lx493\+D.\+c File Reference}
+\label{_t_lx493_d_8c}\index{T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}}
+{\ttfamily \#include \char`\"{}T\+Lx493\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}src/misc/misc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+L\+V\+\_\+\+A1\+B6/\+T\+L\+V\+\_\+\+A1\+B6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+L\+E\+\_\+\+A\+W2\+B6/\+T\+L\+E\+\_\+\+A\+W2\+B6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+L\+E\+\_\+\+A\+W2\+B6/driver/\+T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/debug/debug.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{_t_lx493_d_8c_ac5602c159fc8bc1085dd6ecb8bb116f2}{T\+Lx493\+D\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Detect and initialize the connected sensor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_lx493_d_8c_a9666adf3c459b287d4f2df0488429d4f}\label{_t_lx493_d_8c_a9666adf3c459b287d4f2df0488429d4f}} 
+\mbox{\hyperlink{_t_lx493_d_8h_a82ba00de803d82913c85a5f2ad4534d8}{T\+L\+V493\+D\+\_\+sensor\+\_\+type\+\_\+t}} \mbox{\hyperlink{_t_lx493_d_8c_a9666adf3c459b287d4f2df0488429d4f}{T\+Lx493\+D\+\_\+get\+\_\+sensor\+\_\+type}} (void)
+\begin{DoxyCompactList}\small\item\em Return the type of sensor present on the board. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{_t_lx493_d_8c_a865b1090f005fdbd91faa902fbc35bfd}{T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode}} (\mbox{\hyperlink{_t_lx493_d_8h_ad1ee9fb83616177558746e9164e7524d}{T\+L\+V493\+D\+\_\+op\+\_\+mode\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Set the operation mode of the sensors, if supported. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_lx493_d_8c_aab0716ea8146184fb080786f5c1b40bf}\label{_t_lx493_d_8c_aab0716ea8146184fb080786f5c1b40bf}} 
+\mbox{\hyperlink{_t_lx493_d_8h_ad1ee9fb83616177558746e9164e7524d}{T\+L\+V493\+D\+\_\+op\+\_\+mode\+\_\+t}} \mbox{\hyperlink{_t_lx493_d_8c_aab0716ea8146184fb080786f5c1b40bf}{T\+Lx493\+D\+\_\+get\+\_\+operation\+\_\+mode}} ()
+\begin{DoxyCompactList}\small\item\em Get the operation mode of the sensors. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{_t_lx493_d_8c_accca4d20734f6066c1b9cc5389560805}{T\+Lx493\+D\+\_\+read\+\_\+frame}} (\mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{T\+Lx493\+D\+\_\+data\+\_\+frame\+\_\+t}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Read a data frame from the sensor. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_t_lx493_d_8c_a6f27d54dc57ada277755a2c15300eb97}{M\+I\+S\+C\+\_\+get\+\_\+parity}} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Compute the E\+V\+EN parity of a byte of data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_t_lx493_d_8c_a6f27d54dc57ada277755a2c15300eb97}\label{_t_lx493_d_8c_a6f27d54dc57ada277755a2c15300eb97}} 
+\index{T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}!M\+I\+S\+C\+\_\+get\+\_\+parity@{M\+I\+S\+C\+\_\+get\+\_\+parity}}
+\index{M\+I\+S\+C\+\_\+get\+\_\+parity@{M\+I\+S\+C\+\_\+get\+\_\+parity}!T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}}
+\subsubsection{\texorpdfstring{M\+I\+S\+C\+\_\+get\+\_\+parity()}{MISC\_get\_parity()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+I\+S\+C\+\_\+get\+\_\+parity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Compute the E\+V\+EN parity of a byte of data. 
+
+\begin{DoxyReturn}{Returns}
+Even parity of the data, either the value 0 or 1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_t_lx493_d_8c_ac5602c159fc8bc1085dd6ecb8bb116f2}\label{_t_lx493_d_8c_ac5602c159fc8bc1085dd6ecb8bb116f2}} 
+\index{T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}!T\+Lx493\+D\+\_\+init@{T\+Lx493\+D\+\_\+init}}
+\index{T\+Lx493\+D\+\_\+init@{T\+Lx493\+D\+\_\+init}!T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}}
+\subsubsection{\texorpdfstring{T\+Lx493\+D\+\_\+init()}{TLx493D\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+Lx493\+D\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Detect and initialize the connected sensor. 
+
+Automatically detect the sensor hardware version and call the appropriate initialization sequences. Must be called prior to any other call to a T\+Lx493\+D\+\_\+$\ast$ method. \begin{DoxyReturn}{Returns}
+Error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_t_lx493_d_8c_accca4d20734f6066c1b9cc5389560805}\label{_t_lx493_d_8c_accca4d20734f6066c1b9cc5389560805}} 
+\index{T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}!T\+Lx493\+D\+\_\+read\+\_\+frame@{T\+Lx493\+D\+\_\+read\+\_\+frame}}
+\index{T\+Lx493\+D\+\_\+read\+\_\+frame@{T\+Lx493\+D\+\_\+read\+\_\+frame}!T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}}
+\subsubsection{\texorpdfstring{T\+Lx493\+D\+\_\+read\+\_\+frame()}{TLx493D\_read\_frame()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+Lx493\+D\+\_\+read\+\_\+frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{T\+Lx493\+D\+\_\+data\+\_\+frame\+\_\+t}} $\ast$}]{frame }\end{DoxyParamCaption})}
+
+
+
+Read a data frame from the sensor. 
+
+\begin{DoxyReturn}{Returns}
+Error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_t_lx493_d_8c_a865b1090f005fdbd91faa902fbc35bfd}\label{_t_lx493_d_8c_a865b1090f005fdbd91faa902fbc35bfd}} 
+\index{T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}!T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode@{T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode}}
+\index{T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode@{T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode}!T\+Lx493\+D.\+c@{T\+Lx493\+D.\+c}}
+\subsubsection{\texorpdfstring{T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode()}{TLx493D\_set\_operation\_mode()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+Lx493\+D\+\_\+set\+\_\+operation\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_t_lx493_d_8h_ad1ee9fb83616177558746e9164e7524d}{T\+L\+V493\+D\+\_\+op\+\_\+mode\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the operation mode of the sensors, if supported. 
+
+\begin{DoxyReturn}{Returns}
+Error code. 
+\end{DoxyReturn}

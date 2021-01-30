@@ -1,0 +1,273 @@
+\hypertarget{index_s1}{}\section{General Description}\label{index_s1}
+The T\+Lx493D Generic Library is a microcontroller-\/agnostic implementation of a software stack abstraction for sensors of the T\+Lx493D 3D Hall family.
+
+The supported hardware versions are\+:~\newline
+ $\ast$\+T\+L\+V493\+D-\/\+A1\+B6~\newline
+ $\ast$\+T\+L\+E493\+D-\/\+A2\+B6~\newline
+ $\ast$\+T\+L\+E493\+D-\/\+W2\+B6~\newline
+ $\ast$\+T\+L\+I493\+D-\/\+W2\+BW~\newline
+
+
+The library presents the following three levels of abstraction\+:~\newline
+ $\ast$\+T\+Lx493D abstraction level~\newline
+ $\ast$\+T\+L\+V493\+D/\+T\+L\+E493D + T\+L\+I493\+D-\/\+W2\+BW abstraction levels~\newline
+ $\ast$\+Drivers abstraction levels~\newline
+\hypertarget{index_s2}{}\section{Quick start guide}\label{index_s2}
+Before calling any library function it is important to note that the functions require the ability to communicate with the 3D Hall sensor on the I2C bus. This implementation of such functionality depends on the microcontroller that the library will be compiled for. As such, the user is required to provide certain functions that when called by the library, will establish communication with the sensor. For details about the aforementioned functions regarding implementation and interfacing with the library, please see the file\+: ~\newline
+ \mbox{\hyperlink{interface_8h}{interface.\+h}}
+
+The Core distribution of this library does not provide implementations for such functions. ~\newline
+ The X\+MC distribution of the library provides X\+MC drivers already interfaced with the library.
+
+{\bfseries Follow the T\+O\+DO comments in the code for additional interfacing instructions.}
+
+{\bfseries When importing the library as a project in Dave I\+DE, only use the Debug Build Configuration, otherwise the project might not build !}\hypertarget{index_s1s1}{}\subsection{T\+Lx493\+D abstraction level}\label{index_s1s1}
+The library is able to automatically detect the sensor type and version, making it very easy to get started with such a sensor. The downside of using this level is that regardless of the sensor used, only basic functionality is available to the user, and only one sensor can be used at a time (bus mode not supported). ~\newline
+
+
+Example code for reading a data frame in {\bfseries Master Control Mode}\+: ~\newline
+ 
+\begin{DoxyCode}
+\textcolor{comment}{// please note that the value of status should be checked and properly handler}
+int32\_t status;
+\mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{TLx493D\_data\_frame\_t}} frame;
+int16\_t Bx\_LSB, By\_LSB, Bz\_LSB, sensor\_temperature\_LSB;
+
+\textcolor{comment}{// Initialize the sensor}
+status = \mbox{\hyperlink{_t_lx493_d_8c_ac5602c159fc8bc1085dd6ecb8bb116f2}{TLx493D\_init}}();
+
+\textcolor{comment}{// set operation mode to Master Control Mode}
+status =  \mbox{\hyperlink{_t_lx493_d_8c_a865b1090f005fdbd91faa902fbc35bfd}{TLx493D\_set\_operation\_mode}}(TLx493D\_OP\_MODE\_MCM);
+
+\textcolor{comment}{// read a data frame}
+status = \mbox{\hyperlink{_t_lx493_d_8c_accca4d20734f6066c1b9cc5389560805}{TLx493D\_read\_frame}}(&frame);
+
+\textcolor{comment}{// Copy Magnetic Field Intensity and temperature values in LSB format}
+Bx\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_ac9e9d1455533b3d2e417f2064982a31d}{x}};
+By\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_a95882762f5a26aaed29610c8d4ed8b4c}{y}};
+Bz\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_afc28475d31ed47440530c04d85958adb}{z}};
+sensor\_temperature\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_a318d6cd91a330f561fd0bb7a36f555c8}{temp}};
+\end{DoxyCode}
+
+
+For this abstraction level please see the following files\+: ~\newline
+ \mbox{\hyperlink{_t_lx493_d_8h}{T\+Lx493\+D.\+h}} ~\newline
+ \mbox{\hyperlink{_t_lx493_d_8c}{T\+Lx493\+D.\+c}} ~\newline
+\hypertarget{index_s1s2}{}\subsection{T\+L\+V493\+D/\+T\+L\+E493\+D/\+T\+L\+I493\+D-\/\+W2\+B\+W abstraction levels}\label{index_s1s2}
+By using the functions defined at this abstraction level, the user may change most of the sensor parameters while also not having to manually change register values or ensure that parity values are correct. This level presents a balance between ease of use and access to sensor settings and is the {\bfseries recommended mode for testing sensor features}. The sensor type and version must be known by the user (it is written on the P\+CB of newer kit versions).~\newline
+
+
+Example code for reading a data frame in {\bfseries Master Control Mode} on {\bfseries T\+L\+E493\+D-\/\+A1\+B6}\+: ~\newline
+ 
+\begin{DoxyCode}
+\textcolor{comment}{// please note that the value of status should be checked and properly handler}
+int32\_t status;
+\mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{TLx493D\_data\_frame\_t}} frame;
+int16\_t Bx\_LSB, By\_LSB, Bz\_LSB, sensor\_temperature\_LSB;
+\mbox{\hyperlink{struct_t_l_v493_d__data__t}{TLV493D\_data\_t}} sensor\_state;
+
+\textcolor{comment}{// power-cycle the sensor}
+\textcolor{comment}{// On the 2Go Kit, the sensor may not be powered by default}
+\textcolor{comment}{// (some 2Go kits do not support sensor power control)}
+\mbox{\hyperlink{interface_8h_abadb0076439c5df777bd4e545d82dcce}{\_POWER\_DISABLE}}();
+\mbox{\hyperlink{interface_8h_a049c9e0574db2668751f73dcacaacfe7}{\_POWER\_ENABLE}}();
+
+\textcolor{comment}{// Initialize the sensor}
+\textcolor{comment}{// sensor\_state - data structure used to store the sensor configuration.}
+\textcolor{comment}{//                "NULL" can be passed to use the internal data structure of the}
+\textcolor{comment}{//                library to store the sensor state but when working with several sensors,}
+\textcolor{comment}{//                "NULL" can be passed for only one of them.}
+\textcolor{comment}{// false        - ADDR (i.e. SDA) line will be HIGH at sensor power up. Use false otherwise.}
+\textcolor{comment}{// TLV493D\_A1B6\_ADDR\_1E\_9C - the address to be configured to the sensor. Since true was passed}
+\textcolor{comment}{//                           for the previous parameter, the greater address (9C) will be used for}
+\textcolor{comment}{//                           further I2C communications.}
+status = \mbox{\hyperlink{_t_l_v___a1_b6_8c_a692d5541ead9ea1682f2f618490d549c}{TLV493D\_A1B6\_init}}(&sensor\_state, \textcolor{keyword}{true}, TLV493D\_A1B6\_ADDR\_1E\_9C);
+
+\textcolor{comment}{// set operation mode to Master Control Mode}
+status =  \mbox{\hyperlink{_t_l_v___a1_b6_8c_a67bb87180597a076f74ad907aa8e6bae}{TLV493D\_A1B6\_set\_operation\_mode}}(&sensor\_state, TLx493D\_OP\_MODE\_MCM
+      );
+
+\textcolor{comment}{// read a data frame}
+status = \mbox{\hyperlink{_t_l_v___a1_b6_8c_aae1632aa63a45d4b9c57eb6857e7803b}{TLV493D\_A1B6\_read\_frame}}(&sensor\_state, &frame);
+
+\textcolor{comment}{// Copy Magnetic Field Intensity and temperature values in LSB format}
+Bx\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_ac9e9d1455533b3d2e417f2064982a31d}{x}};
+By\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_a95882762f5a26aaed29610c8d4ed8b4c}{y}};
+Bz\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_afc28475d31ed47440530c04d85958adb}{z}};
+sensor\_temperature\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_a318d6cd91a330f561fd0bb7a36f555c8}{temp}};
+\end{DoxyCode}
+
+
+Example code for reading a data frame in {\bfseries Master Control Mode} on {\bfseries T\+L\+E493\+D-\/\+A2\+B6/\+W2\+B6/\+T\+L\+I493\+D-\/\+W2\+BW}\+: ~\newline
+ 
+\begin{DoxyCode}
+\textcolor{comment}{// please note that the value of status should be checked and properly handler}
+int32\_t status;
+\mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{TLx493D\_data\_frame\_t}} frame;
+int16\_t Bx\_LSB, By\_LSB, Bz\_LSB, sensor\_temperature\_LSB;
+\mbox{\hyperlink{struct_t_l_e493_d__data__t}{TLE493D\_data\_t}} sensor\_state;
+
+
+\textcolor{comment}{// power-cycle the sensor}
+\textcolor{comment}{// On the 2Go Kit, the sensor may not be powered by default}
+\mbox{\hyperlink{interface_8h_abadb0076439c5df777bd4e545d82dcce}{\_POWER\_DISABLE}}();
+\mbox{\hyperlink{interface_8h_a049c9e0574db2668751f73dcacaacfe7}{\_POWER\_ENABLE}}();
+
+\textcolor{comment}{// Initialize the sensor}
+\textcolor{comment}{// sensor\_state - data structure used to store the sensor configuration.}
+\textcolor{comment}{//                "NULL" can be passed to use the internal data structure of the}
+\textcolor{comment}{//                library to store the sensor state but when working with several sensors,}
+\textcolor{comment}{//                "NULL" can be passed for only one of them.}
+\textcolor{comment}{//                Please note that the structure type is different then in the TLV example!}
+\textcolor{comment}{// TLE493D\_AW2B6\_I2C\_A0\_ADDR - the fused address of the sensor. It can be A0, A1, A2 or A3.}
+status = \mbox{\hyperlink{_t_l_e___a_w2_b6_8h_ac24faf10a6ed531d3926901253ec420f}{TLE493D\_AW2B6\_init}}(&sensor\_state, TLE493D\_AW2B6\_I2C\_A0\_ADDR);
+
+\textcolor{comment}{// set operation mode to Master Control Mode}
+status = \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_ac9472a655168a8594bfcfffbd7607149}{TLE493D\_AW2B6\_set\_operation\_mode}}(&sensor\_state, 
+      TLx493D\_OP\_MODE\_MCM);
+
+\textcolor{comment}{// read a data frame}
+status = \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a2762d6c77af74f058687f66f2299825a}{TLE493D\_AW2B6\_read\_frame}}(&sensor\_state, &frame);
+
+\textcolor{comment}{// Copy Magnetic Field Intensity and temperature values in LSB format}
+Bx\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_ac9e9d1455533b3d2e417f2064982a31d}{x}};
+By\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_a95882762f5a26aaed29610c8d4ed8b4c}{y}};
+Bz\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_afc28475d31ed47440530c04d85958adb}{z}};
+sensor\_temperature\_LSB = frame.\mbox{\hyperlink{struct_t_lx493_d__data__frame__t_a318d6cd91a330f561fd0bb7a36f555c8}{temp}};
+\end{DoxyCode}
+
+
+For T\+L\+V493\+D-\/\+A1\+B6 please see the following files\+:~\newline
+ \mbox{\hyperlink{_t_l_v___a1_b6_8h}{T\+L\+V\+\_\+\+A1\+B6.\+h}}~\newline
+ \mbox{\hyperlink{_t_l_v___a1_b6_8c}{T\+L\+V\+\_\+\+A1\+B6.\+c}}~\newline
+ ~\newline
+ For T\+L\+E493\+D-\/\+A2\+B6/-\/\+W2\+B6 please see the following files\+:~\newline
+ \mbox{\hyperlink{_t_l_e___a_w2_b6_8h}{T\+L\+E\+\_\+\+A\+W2\+B6.\+h}}~\newline
+ \mbox{\hyperlink{_t_l_e___a_w2_b6_8c}{T\+L\+E\+\_\+\+A\+W2\+B6.\+c}}~\newline
+\hypertarget{index_s1s3}{}\subsection{Drivers abstraction levels}\label{index_s1s3}
+The lowest abstraction level presented by the library is the driver level allowing basic read and write operations with reserved data correction for the T\+L\+V493\+D-\/\+A1\+B6. The implementation is stateless and allows reading and writing sensor registers.~\newline
+
+
+Example code for reading a data frame in {\bfseries Master Control Mode} on {\bfseries T\+L\+E493\+D-\/\+A1\+B6}\+: ~\newline
+ 
+\begin{DoxyCode}
+\textcolor{comment}{// please note that the value of status should be checked and properly handler}
+int32\_t status;
+\mbox{\hyperlink{struct_t_l_v493_d__data__t}{TLV493D\_data\_t}} sensor\_state;
+
+
+\textcolor{comment}{// power-cycle the sensor}
+\textcolor{comment}{// On the 2Go Kit, the sensor may not be powered by default}
+\mbox{\hyperlink{interface_8h_abadb0076439c5df777bd4e545d82dcce}{\_POWER\_DISABLE}}();
+\mbox{\hyperlink{interface_8h_a049c9e0574db2668751f73dcacaacfe7}{\_POWER\_ENABLE}}();
+
+\textcolor{comment}{// \{ Initialize the sensor \}}
+\textcolor{comment}{// consider the line ADDR(i.e. SDA) as HIGH at sensor startup}
+\textcolor{comment}{// and user default I2C address for that particular case}
+sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}} = TLV493D\_A1B6\_I2C\_DEFAULT\_ADDR\_HIGH;
+
+\textcolor{comment}{// copy the state of ALL the read registers, used for auto-correction}
+\textcolor{comment}{// on write operations}
+status = \mbox{\hyperlink{_t_l_v___a1_b6__driver_8c_a80bcc62ca392203dbdabcd529f35c35b}{TLV493D\_A1B6\_read\_regs}}(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}},
+                               &(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a8160052cc383f9ec602c96f41922952b}{regmap\_read}}),
+                               TLV493D\_A1B6\_READ\_REGS\_COUNT - 1
+);
+
+\textcolor{comment}{// \{ Configure Master Control Mode \}}
+\textcolor{comment}{// clear IICAddr, INT, FAST, LOW flags}
+sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_aa17835fca124976dc402c4305da2b724}{regmap\_write}}.MOD1 &= ~(TLV493D\_A1B6\_MOD1\_IICAddr\_MSK
+                                   | TLV493D\_A1B6\_MOD1\_INT\_MSK
+                                   | TLV493D\_A1B6\_MOD1\_FAST\_MSK
+                                   | TLV493D\_A1B6\_MOD1\_LOW\_MSK);
+
+\textcolor{comment}{// set Master Control Mode configuration and 9C as I2C address}
+\textcolor{comment}{// (it ADDR were LOW at sensor power-up, the address would have been 1E)}
+sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_aa17835fca124976dc402c4305da2b724}{regmap\_write}}.MOD1 |= TLV493D\_A1B6\_MOD1\_IICAddr\_1E\_9C
+                                  | TLV493D\_A1B6\_MOD1\_INT\_DISABLE
+                                  | TLV493D\_A1B6\_MOD1\_FAST\_ENABLE
+                                  | TLV493D\_A1B6\_MOD1\_LOW\_ENABLE;
+
+\textcolor{comment}{// write the register to the sensor; use read registers for correction of}
+\textcolor{comment}{// reserved bits (so they do not need to be copied manually)}
+status = \mbox{\hyperlink{_t_l_v___a1_b6__driver_8c_a193d021b21978abf81eba392c7b52ce5}{TLV493D\_A1B6\_write\_regs}}(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}},
+                                &(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_aa17835fca124976dc402c4305da2b724}{regmap\_write}}),
+                                &(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a8160052cc383f9ec602c96f41922952b}{regmap\_read}}));
+
+\textcolor{comment}{// \{ after changing the address, manually update it in the data structure \}}
+sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}} = 0x9Cu;
+
+\textcolor{comment}{// \{ read a data frame \}}
+\textcolor{comment}{// note that here the information is located in sensor\_state.regmap\_read}
+\textcolor{comment}{// and it is NOT parsed. In order to extract the Bx, By, Bz and temperature}
+\textcolor{comment}{// values, please see the TLV493D\_A1B6\_read\_frame function (found in TLV\_A1B6.c).}
+status = \mbox{\hyperlink{_t_l_v___a1_b6__driver_8c_a80bcc62ca392203dbdabcd529f35c35b}{TLV493D\_A1B6\_read\_regs}}(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}},
+                                &(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a8160052cc383f9ec602c96f41922952b}{regmap\_read}}),
+                                TLV493D\_A1B6\_Temp2\_REG);
+\end{DoxyCode}
+
+
+Example code for reading a data frame in {\bfseries Master Control Mode} on {\bfseries T\+L\+E493\+D-\/\+A1\+B6}\+: ~\newline
+ 
+\begin{DoxyCode}
+\textcolor{comment}{// please note that the value of status should be checked and properly handler}
+int32\_t status;
+\mbox{\hyperlink{struct_t_l_v493_d__data__t}{TLV493D\_data\_t}} sensor\_state;
+
+
+\textcolor{comment}{// power-cycle the sensor}
+\textcolor{comment}{// On the 2Go Kit, the sensor may not be powered by default}
+\mbox{\hyperlink{interface_8h_abadb0076439c5df777bd4e545d82dcce}{\_POWER\_DISABLE}}();
+\mbox{\hyperlink{interface_8h_a049c9e0574db2668751f73dcacaacfe7}{\_POWER\_ENABLE}}();
+
+\textcolor{comment}{// \{ Initialize the sensor \}}
+\textcolor{comment}{// set I2C address}
+sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}} = TLE493D\_AW2B6\_I2C\_A0\_ADDR;
+
+\textcolor{comment}{// I2C address A0 (not hexadecimal value A0, but rated the address with the label A0)}
+\textcolor{comment}{// 1-byte read protocol, Collision Avoidance Enabled, Interrupt Disabled}
+\textcolor{comment}{// Mode Master Control Mode}
+sensor\_state.regmap.MOD1 = TLE493D\_AW2B6\_MOD1\_IICadr\_A0
+                           | TLE493D\_AW2B6\_MOD1\_PR\_1BYTE
+                           | TLE493D\_AW2B6\_MOD1\_CA\_ENABLE
+                           | TLE493D\_AW2B6\_MOD1\_INT\_DISABLE
+                           | TLE493D\_AW2B6\_MOD1\_MODE\_MCM;
+
+\textcolor{comment}{// compute the parity bit}
+sensor\_state.regmap.MOD1 |= (\_get\_FP\_bit(&sensor\_state) << TLE493D\_AW2B6\_MOD1\_FP\_POS);
+
+\textcolor{comment}{// write registers}
+status = \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8c_a8471b6d4fdaac89ba4f91bd23207acca}{TLE493D\_AW2B6\_write\_reg}}(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}},
+                                TLE493D\_AW2B6\_MOD1\_REG,
+                                sensor\_state.regmap.MOD1
+);
+
+\textcolor{comment}{// write config reg, set trigger}
+sensor\_state.regmap.Config = TLE493D\_AW2B6\_Config\_TRIG\_R6;
+status = \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8c_a8471b6d4fdaac89ba4f91bd23207acca}{TLE493D\_AW2B6\_write\_reg}}(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}},
+                               TLE493D\_AW2B6\_Config\_REG,
+                               sensor\_state.regmap.Config
+);
+
+\textcolor{comment}{// \{ read entire register map \}}
+\textcolor{comment}{// note that here the information is located in sensor\_state.regmap}
+\textcolor{comment}{// and it is NOT parsed. In order to extract the Bx, By, Bz and temperature}
+\textcolor{comment}{// values, please see the TLE493D\_AW2B6\_read\_frame function (found in TLE\_AW2B6.c).}
+status = \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8c_a1f4738c50bc41e827100b12d812b0fb5}{TLE493D\_AW2B6\_read\_regs}}(sensor\_state.\mbox{\hyperlink{struct_t_l_v493_d__data__t_a047c4ab12450e0186489f3bfadc8cbc4}{IIC\_addr}},
+                                &(sensor\_state.regmap),
+                                (TLE493D\_AW2B6\_REGS\_COUNT - 1)
+);
+\end{DoxyCode}
+
+
+For this level please see the following files\+: ~\newline
+ ~\newline
+ For T\+L\+V493\+D-\/\+A1\+B6\+:~\newline
+ \mbox{\hyperlink{_t_l_v___a1_b6__driver_8h}{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}}~\newline
+ \mbox{\hyperlink{_t_l_v___a1_b6__defines_8h}{T\+L\+V\+\_\+\+A1\+B6\+\_\+defines.\+h}}~\newline
+ \mbox{\hyperlink{_t_l_v___a1_b6__driver_8c}{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+c}}~\newline
+ ~\newline
+ For T\+L\+E493\+D-\/\+A2\+B6/-\/\+W2\+B6 T\+L\+I493\+D-\/\+W2\+BW\+:~\newline
+ \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8h}{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h}}~\newline
+ \mbox{\hyperlink{_t_l_e___a_w2_b6__driver_8c}{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+c}}~\newline
+ \mbox{\hyperlink{_t_l_e___a_w2_b6__defines_8h}{T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+defines.\+h}}~\newline
+ 

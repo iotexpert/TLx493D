@@ -1,0 +1,69 @@
+\hypertarget{_t_l_v___a1_b6__driver_8h}{}\section{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h File Reference}
+\label{_t_l_v___a1_b6__driver_8h}\index{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h@{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}}
+
+
+Low level driver for the T\+L\+V493\+D-\/\+A1\+B6.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}T\+L\+V\+\_\+\+A1\+B6\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/\+T\+Lx493\+D/interface.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_t_l_v493_d__regmap__read__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Data structure describing the T\+L\+V493D read registers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_t_l_v493_d__regmap__write__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+write\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Data structure describing the T\+L\+V493D write registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6__driver_8h_a80bcc62ca392203dbdabcd529f35c35b}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs}} (uint8\+\_\+t addr, \mbox{\hyperlink{struct_t_l_v493_d__regmap__read__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}} $\ast$regmap, uint8\+\_\+t upto)
+\begin{DoxyCompactList}\small\item\em Read register values from the sensor, starting with the register at address 0 up to register {\bfseries upto}. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6__driver_8h_a193d021b21978abf81eba392c7b52ce5}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs}} (uint8\+\_\+t addr, \mbox{\hyperlink{struct_t_l_v493_d__regmap__write__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+write\+\_\+t}} $\ast$regmap, const \mbox{\hyperlink{struct_t_l_v493_d__regmap__read__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}} $\ast$regmap\+\_\+check)
+\begin{DoxyCompactList}\small\item\em Write the register data from regmap to the sensor registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Low level driver for the T\+L\+V493\+D-\/\+A1\+B6. 
+
+It simplifies the read and write operations when working with the internal registers of the sensor and also help prevent changes to the reserved data registers. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_t_l_v___a1_b6__driver_8h_a80bcc62ca392203dbdabcd529f35c35b}\label{_t_l_v___a1_b6__driver_8h_a80bcc62ca392203dbdabcd529f35c35b}} 
+\index{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h@{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}!T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs}}
+\index{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs}!T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h@{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs()}{TLV493D\_A1B6\_read\_regs()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+regs (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{\mbox{\hyperlink{struct_t_l_v493_d__regmap__read__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}} $\ast$}]{regmap,  }\item[{uint8\+\_\+t}]{upto }\end{DoxyParamCaption})}
+
+
+
+Read register values from the sensor, starting with the register at address 0 up to register {\bfseries upto}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & the I2C address of the sensor; \\
+\hline
+{\em regmap} & register map read structure used to store the read registers of the sensor. \\
+\hline
+{\em upto} & The reading process will start with register 0 and will continue incrementally up to the register {\bfseries upto}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_t_l_v___a1_b6__driver_8h_a193d021b21978abf81eba392c7b52ce5}\label{_t_l_v___a1_b6__driver_8h_a193d021b21978abf81eba392c7b52ce5}} 
+\index{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h@{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}!T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs}}
+\index{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs}!T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h@{T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs()}{TLV493D\_A1B6\_write\_regs()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+write\+\_\+regs (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{\mbox{\hyperlink{struct_t_l_v493_d__regmap__write__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+write\+\_\+t}} $\ast$}]{regmap,  }\item[{const \mbox{\hyperlink{struct_t_l_v493_d__regmap__read__t}{T\+L\+V493\+D\+\_\+regmap\+\_\+read\+\_\+t}} $\ast$}]{regmap\+\_\+check }\end{DoxyParamCaption})}
+
+
+
+Write the register data from regmap to the sensor registers. 
+
+If the {\bfseries regmap\+\_\+check} pointer points to a valid structure (is not N\+U\+LL), the reserved registers data from the {\bfseries regmap} will be overwritten with the reserved data from {\bfseries regmap\+\_\+check}. This ensures that the reserved data read from the sensor is properly written back to the sensor. This overwrite will need to happend only once, as the corrections will be stored inside {\bfseries regmap}.
+
+\begin{DoxyReturn}{Returns}
+Error code. 
+\end{DoxyReturn}

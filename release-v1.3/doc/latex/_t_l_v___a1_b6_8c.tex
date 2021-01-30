@@ -1,0 +1,91 @@
+\hypertarget{_t_l_v___a1_b6_8c}{}\section{T\+L\+V\+\_\+\+A1\+B6.\+c File Reference}
+\label{_t_l_v___a1_b6_8c}\index{T\+L\+V\+\_\+\+A1\+B6.\+c@{T\+L\+V\+\_\+\+A1\+B6.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}driver/\+T\+L\+V\+\_\+\+A1\+B6\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/\+T\+L\+V\+\_\+\+A1\+B6\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+L\+V\+\_\+\+A1\+B6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+T\+Lx493\+D.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}\label{_t_l_v___a1_b6_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}} 
+\#define {\bfseries N\+U\+LL}~((void$\ast$) 0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_a692d5541ead9ea1682f2f618490d549c}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data, bool addr\+\_\+high, \mbox{\hyperlink{_t_l_v___a1_b6_8h_a8feabf3c07e764c773a5632a3f72461b}{T\+L\+V493\+D\+\_\+address\+\_\+t}} addr\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Initialize the sensor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_a67bb87180597a076f74ad907aa8e6bae}\label{_t_l_v___a1_b6_8c_a67bb87180597a076f74ad907aa8e6bae}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_a67bb87180597a076f74ad907aa8e6bae}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+operation\+\_\+mode}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_lx493_d_8h_ad1ee9fb83616177558746e9164e7524d}{T\+L\+V493\+D\+\_\+op\+\_\+mode\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Change the operation mode of the sensor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_l_v___a1_b6_8c_ade247f6d61d9555cce1e1373a26aa619}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Hard reset the sensor by executing a power cycle and reinitialize using the settings from the data structure. Will only set the address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_aae1632aa63a45d4b9c57eb6857e7803b}\label{_t_l_v___a1_b6_8c_aae1632aa63a45d4b9c57eb6857e7803b}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_aae1632aa63a45d4b9c57eb6857e7803b}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+read\+\_\+frame}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{T\+Lx493\+D\+\_\+data\+\_\+frame\+\_\+t}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Read the registers of the T\+Lx493D sensor and create a data frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_a0f22eca2050fbce64ef0e28642ac1a15}\label{_t_l_v___a1_b6_8c_a0f22eca2050fbce64ef0e28642ac1a15}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_a0f22eca2050fbce64ef0e28642ac1a15}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+temp\+\_\+measure}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data, bool enabled)
+\begin{DoxyCompactList}\small\item\em Enable or disable the temperature measurement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_a07f7def76ae7bac68f1822c362f9d89b}\label{_t_l_v___a1_b6_8c_a07f7def76ae7bac68f1822c362f9d89b}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_a07f7def76ae7bac68f1822c362f9d89b}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+parity\+\_\+test}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data, bool enabled)
+\begin{DoxyCompactList}\small\item\em Enable or disable the parity test. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_a45bfed5a9a44bbfb0d5da1419cb48cf8}\label{_t_l_v___a1_b6_8c_a45bfed5a9a44bbfb0d5da1419cb48cf8}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_a45bfed5a9a44bbfb0d5da1419cb48cf8}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+\+I\+I\+C\+\_\+address}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_l_v___a1_b6_8h_a8feabf3c07e764c773a5632a3f72461b}{T\+L\+V493\+D\+\_\+address\+\_\+t}} new\+\_\+addr\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Set a new I2C address for the sensor, considering the A\+D\+DR pin level at startup. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_acf786ec2c80c70c7038e2deecd942d6e}\label{_t_l_v___a1_b6_8c_acf786ec2c80c70c7038e2deecd942d6e}} 
+void \mbox{\hyperlink{_t_l_v___a1_b6_8c_acf786ec2c80c70c7038e2deecd942d6e}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+get\+\_\+data}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Copy the data stored in the library to the dest structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_ae0480f47ac774e685461556b7a388b82}\label{_t_l_v___a1_b6_8c_ae0480f47ac774e685461556b7a388b82}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_v___a1_b6_8c_ae0480f47ac774e685461556b7a388b82}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+data}} (\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em Copy the data from src to the library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_ade247f6d61d9555cce1e1373a26aa619}\label{_t_l_v___a1_b6_8c_ade247f6d61d9555cce1e1373a26aa619}} 
+\index{T\+L\+V\+\_\+\+A1\+B6.\+c@{T\+L\+V\+\_\+\+A1\+B6.\+c}!T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure}}
+\index{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure}!T\+L\+V\+\_\+\+A1\+B6.\+c@{T\+L\+V\+\_\+\+A1\+B6.\+c}}
+\subsubsection{\texorpdfstring{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure()}{TLV493D\_A1B6\_hard\_reset\_reconfigure()}}
+{\footnotesize\ttfamily void T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+hard\+\_\+reset\+\_\+reconfigure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Hard reset the sensor by executing a power cycle and reinitialize using the settings from the data structure. Will only set the address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Sensor data structure. By passing N\+U\+LL, local data will be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_t_l_v___a1_b6_8c_a692d5541ead9ea1682f2f618490d549c}\label{_t_l_v___a1_b6_8c_a692d5541ead9ea1682f2f618490d549c}} 
+\index{T\+L\+V\+\_\+\+A1\+B6.\+c@{T\+L\+V\+\_\+\+A1\+B6.\+c}!T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init}}
+\index{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init@{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init}!T\+L\+V\+\_\+\+A1\+B6.\+c@{T\+L\+V\+\_\+\+A1\+B6.\+c}}
+\subsubsection{\texorpdfstring{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init()}{TLV493D\_A1B6\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_l_v493_d__data__t}{T\+L\+V493\+D\+\_\+data\+\_\+t}} $\ast$}]{data,  }\item[{bool}]{A\+D\+D\+R\+\_\+high,  }\item[{\mbox{\hyperlink{_t_l_v___a1_b6_8h_a8feabf3c07e764c773a5632a3f72461b}{T\+L\+V493\+D\+\_\+address\+\_\+t}}}]{addr\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Initialize the sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & parameter is optional (can be replaced with N\+U\+LL) and specifies a data structure that should store the state of the sensor. If no data structure is sepcifiec, an internal data structure will be used. This parameter should be used in a bus configuration to easily identify sensors and also to manually inspect the internal state of the sensor. \\
+\hline
+{\em A\+D\+D\+R\+\_\+high} & indicates the level of A\+D\+DR at the time the sensor was powered up. A\+D\+D\+R\+\_\+high=true indicates that the sensor was powered up with A\+D\+DR=H\+I\+GH A\+D\+D\+R\+\_\+high=false indicates that the sensor was powered up with A\+D\+DR=L\+OW \\
+\hline
+{\em addr\+\_\+type} & indicates the desired address after initialization while keeping in mind the value of A\+D\+D\+R\+\_\+high and the A\+D\+DR pin logic value at startup.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+\textcolor{comment}{// ========================= Example =============================}
+\textcolor{comment}{// NULL -> store sensor information internally inside the library}
+\textcolor{comment}{//  This mode supports only one sensor at a time}
+\textcolor{comment}{// true -> At startup the ADDR pin was HIGH so the internal sensor}
+\textcolor{comment}{// address pin is set to 1}
+\textcolor{comment}{// TLV493D\_A1B6\_ADDR\_1E\_9C -> the desired sensor address is either}
+\textcolor{comment}{// 1E or 9C. Since the ADDR pin was HIGH at startup, the address will}
+\textcolor{comment}{// always be 9C}
+\mbox{\hyperlink{_t_l_v___a1_b6_8c_a692d5541ead9ea1682f2f618490d549c}{TLV493D\_A1B6\_init}}(NULL, \textcolor{keyword}{true}, TLV493D\_A1B6\_ADDR\_1E\_9C);
+\end{DoxyCode}
+ 

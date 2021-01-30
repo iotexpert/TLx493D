@@ -1,0 +1,77 @@
+\hypertarget{_t_l_e___a_w2_b6_8c}{}\section{T\+L\+E\+\_\+\+A\+W2\+B6.\+c File Reference}
+\label{_t_l_e___a_w2_b6_8c}\index{T\+L\+E\+\_\+\+A\+W2\+B6.\+c@{T\+L\+E\+\_\+\+A\+W2\+B6.\+c}}
+{\ttfamily \#include \char`\"{}../\+T\+Lx493\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+L\+E\+\_\+\+A\+W2\+B6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/\+T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/\+T\+L\+E\+\_\+\+A\+W2\+B6\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/misc/misc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/\+T\+Lx493\+D/interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/debug/debug.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a9bfe97baf2bb29f26ed26883f176197c}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_abdfd82c85a95a24c938ddd892bdea885}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data)
+\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_ad11f9426cda021beb0e2c2d216c57f83}\label{_t_l_e___a_w2_b6_8c_ad11f9426cda021beb0e2c2d216c57f83}} 
+int32\+\_\+t {\bfseries T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+init} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_l_e___a_w2_b6__defines_8h_a06dad61359b7c858980d4da8c520f06d}{T\+L\+E493\+D\+\_\+address\+\_\+t}} i2c\+\_\+addr)
+\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_ac9472a655168a8594bfcfffbd7607149}\label{_t_l_e___a_w2_b6_8c_ac9472a655168a8594bfcfffbd7607149}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_ac9472a655168a8594bfcfffbd7607149}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+set\+\_\+operation\+\_\+mode}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_lx493_d_8h_ad1ee9fb83616177558746e9164e7524d}{T\+L\+V493\+D\+\_\+op\+\_\+mode\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Set the operation mode of the sensor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a2762d6c77af74f058687f66f2299825a}\label{_t_l_e___a_w2_b6_8c_a2762d6c77af74f058687f66f2299825a}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a2762d6c77af74f058687f66f2299825a}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+read\+\_\+frame}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{struct_t_lx493_d__data__frame__t}{T\+Lx493\+D\+\_\+data\+\_\+frame\+\_\+t}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Read a data frame from the sensor. An A\+DC sampling must be completed before calling this method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a83963f7545270d4c9f007e3ab4a89583}\label{_t_l_e___a_w2_b6_8c_a83963f7545270d4c9f007e3ab4a89583}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a83963f7545270d4c9f007e3ab4a89583}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+\+W\+U\+\_\+enable}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, uint16\+\_\+t wu\+\_\+xl, uint16\+\_\+t wu\+\_\+xh, uint16\+\_\+t wu\+\_\+yl, uint16\+\_\+t wu\+\_\+yh, uint16\+\_\+t wu\+\_\+zl, uint16\+\_\+t wu\+\_\+zh)
+\begin{DoxyCompactList}\small\item\em Enable the Wake Up mode (available only on the -\/\+W2\+B6 hardware version) with the provided upper and lower limits. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_acc9314337b26b041d2c6a8599328882c}\label{_t_l_e___a_w2_b6_8c_acc9314337b26b041d2c6a8599328882c}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_acc9314337b26b041d2c6a8599328882c}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+\+W\+U\+\_\+disable}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Disable the Wake Up mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_aef696b50b8ab776594aead5b366f52a4}\label{_t_l_e___a_w2_b6_8c_aef696b50b8ab776594aead5b366f52a4}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_aef696b50b8ab776594aead5b366f52a4}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+set\+\_\+\+I\+I\+C\+\_\+address}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_l_e___a_w2_b6__defines_8h_a06dad61359b7c858980d4da8c520f06d}{T\+L\+E493\+D\+\_\+address\+\_\+t}} i2c\+\_\+addr)
+\begin{DoxyCompactList}\small\item\em Set a new I2C address for the sensor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a2d8edcd4e2bd5ae8a7a327a77344e99b}\label{_t_l_e___a_w2_b6_8c_a2d8edcd4e2bd5ae8a7a327a77344e99b}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a2d8edcd4e2bd5ae8a7a327a77344e99b}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+magnetic\+\_\+tmp\+\_\+comp}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_l_e___a_w2_b6__defines_8h_a6477b27894cd6d31d4df90a2e8daf87e}{T\+L\+E493\+D\+\_\+magnetic\+\_\+comp\+\_\+t}} sens)
+\begin{DoxyCompactList}\small\item\em Set the magnetic temperature compensation mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a9a7953223bc247192ded3fae8342b8aa}\label{_t_l_e___a_w2_b6_8c_a9a7953223bc247192ded3fae8342b8aa}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a9a7953223bc247192ded3fae8342b8aa}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+set\+\_\+high\+\_\+sensitivity}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, bool on)
+\begin{DoxyCompactList}\small\item\em Double the measurement sensitivity(when on=true). This will decrease the A\+DC integration speed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_af150c78eb25dca29036e66026b6d7aa6}\label{_t_l_e___a_w2_b6_8c_af150c78eb25dca29036e66026b6d7aa6}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_af150c78eb25dca29036e66026b6d7aa6}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+set\+\_\+angle\+\_\+mode}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, bool on)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable angle mode. In order to enable angle mode, the temperature measurement must be disabled. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_ab71a0f8dce3764da871f372f4958bd85}\label{_t_l_e___a_w2_b6_8c_ab71a0f8dce3764da871f372f4958bd85}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_ab71a0f8dce3764da871f372f4958bd85}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+set\+\_\+temp\+\_\+measure}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, bool on)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable temperature measurement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_ad177423332b40249de02845beaab312f}\label{_t_l_e___a_w2_b6_8c_ad177423332b40249de02845beaab312f}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_ad177423332b40249de02845beaab312f}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+lowpower\+\_\+update\+\_\+frequency}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_l_e___a_w2_b6__defines_8h_a27ad22f206f9e1065fd02c861db283f7}{T\+L\+E493\+D\+\_\+lp\+\_\+update\+\_\+freq\+\_\+t}} freq)
+\begin{DoxyCompactList}\small\item\em Set the update frequency while in L\+OW P\+O\+W\+ER Mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a292560149e3a7108f144c7d81e845edd}\label{_t_l_e___a_w2_b6_8c_a292560149e3a7108f144c7d81e845edd}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a292560149e3a7108f144c7d81e845edd}{T\+L\+V493\+D\+\_\+\+A1\+B6\+\_\+set\+\_\+trigger\+\_\+mode}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data, \mbox{\hyperlink{_t_l_e___a_w2_b6__defines_8h_a1ff58a7f57356369750bb78659204592}{T\+L\+E493\+D\+\_\+\+Config\+\_\+trigger\+\_\+mode\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Set trigger mode. Note that the T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+\+Config\+\_\+\+T\+R\+I\+G\+\_\+\+R0 mode is momentarily not safe to use in this software implementation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_aa8608b3ad4765074ed8de4a528518281}\label{_t_l_e___a_w2_b6_8c_aa8608b3ad4765074ed8de4a528518281}} 
+\mbox{\hyperlink{_t_lx493_d_8h_a82ba00de803d82913c85a5f2ad4534d8}{T\+L\+V493\+D\+\_\+sensor\+\_\+type\+\_\+t}} \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_aa8608b3ad4765074ed8de4a528518281}{T\+L\+E493\+D\+\_\+get\+\_\+hw\+\_\+version}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Return hardware version of the T\+L\+E493D. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a8e1c5b29410935545092dbb681253b74}\label{_t_l_e___a_w2_b6_8c_a8e1c5b29410935545092dbb681253b74}} 
+void \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a8e1c5b29410935545092dbb681253b74}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+data}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$dest)
+\begin{DoxyCompactList}\small\item\em Copy the data stored in the library to the dest structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a0df1170a713360c03945a5e9338774ba}\label{_t_l_e___a_w2_b6_8c_a0df1170a713360c03945a5e9338774ba}} 
+int32\+\_\+t \mbox{\hyperlink{_t_l_e___a_w2_b6_8c_a0df1170a713360c03945a5e9338774ba}{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+set\+\_\+data}} (\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em Copy the data from src to the library and the sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_abdfd82c85a95a24c938ddd892bdea885}\label{_t_l_e___a_w2_b6_8c_abdfd82c85a95a24c938ddd892bdea885}} 
+\index{T\+L\+E\+\_\+\+A\+W2\+B6.\+c@{T\+L\+E\+\_\+\+A\+W2\+B6.\+c}!T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit}}
+\index{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit}!T\+L\+E\+\_\+\+A\+W2\+B6.\+c@{T\+L\+E\+\_\+\+A\+W2\+B6.\+c}}
+\subsubsection{\texorpdfstring{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit()}{TLE493D\_AW2B6\_get\_CP\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+C\+P\+\_\+bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$}]{data }\end{DoxyParamCaption})}
+
+Compute the value of the CP bit using the internal register state of the sensor \mbox{\Hypertarget{_t_l_e___a_w2_b6_8c_a9bfe97baf2bb29f26ed26883f176197c}\label{_t_l_e___a_w2_b6_8c_a9bfe97baf2bb29f26ed26883f176197c}} 
+\index{T\+L\+E\+\_\+\+A\+W2\+B6.\+c@{T\+L\+E\+\_\+\+A\+W2\+B6.\+c}!T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit}}
+\index{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit@{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit}!T\+L\+E\+\_\+\+A\+W2\+B6.\+c@{T\+L\+E\+\_\+\+A\+W2\+B6.\+c}}
+\subsubsection{\texorpdfstring{T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit()}{TLE493D\_AW2B6\_get\_FP\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t T\+L\+E493\+D\+\_\+\+A\+W2\+B6\+\_\+get\+\_\+\+F\+P\+\_\+bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_l_e493_d__data__t}{T\+L\+E493\+D\+\_\+data\+\_\+t}} $\ast$}]{data }\end{DoxyParamCaption})}
+
+Compute the value of the FP bit using the internal register state of the sensor 

@@ -1,0 +1,35 @@
+\hypertarget{gpio_8h}{}\section{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/gpio/gpio.h File Reference}
+\label{gpio_8h}\index{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/gpio/gpio.\+h@{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/xmc1100/gpio/gpio.\+h}}
+
+
+G\+P\+IO based functions for controlling the power supply and A\+D\+DR pin state of the sensor.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gpio_8h_abfc6bba5205af20ea1ceddae973ccb1e}\label{gpio_8h_abfc6bba5205af20ea1ceddae973ccb1e}} 
+void \mbox{\hyperlink{gpio_8h_abfc6bba5205af20ea1ceddae973ccb1e}{G\+P\+I\+O\+\_\+sensor\+\_\+supply}} (bool on)
+\begin{DoxyCompactList}\small\item\em Set the sensor supply voltage and the discrete I2C bus pull-\/up resistors voltage H\+I\+GH or L\+OW. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gpio_8h_a21401b22bb38824d507854910a260709}{G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait}} (bool high)
+\begin{DoxyCompactList}\small\item\em Configure the A\+D\+DR pin logical level at startup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+G\+P\+IO based functions for controlling the power supply and A\+D\+DR pin state of the sensor. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio_8h_a21401b22bb38824d507854910a260709}\label{gpio_8h_a21401b22bb38824d507854910a260709}} 
+\index{gpio.\+h@{gpio.\+h}!G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait@{G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait}}
+\index{G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait@{G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait()}{GPIO\_set\_addr\_wait()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+set\+\_\+addr\+\_\+wait (\begin{DoxyParamCaption}\item[{bool}]{high }\end{DoxyParamCaption})}
+
+
+
+Configure the A\+D\+DR pin logical level at startup. 
+
+(Necessary for T\+L\+V493\+D-\/\+A1\+B6 sensor only!) Set the A\+D\+D\+R(\+S\+D\+A) I2C pin H\+I\+GH or L\+OW and wait for the sensor startup. Finally, set A\+D\+DR to H\+I\+GH. Must be called right after the sensor power-\/up. 

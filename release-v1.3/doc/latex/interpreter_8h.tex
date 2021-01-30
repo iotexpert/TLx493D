@@ -1,0 +1,55 @@
+\hypertarget{interpreter_8h}{}\section{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/\+G\+U\+I/interpreter/interpreter.h File Reference}
+\label{interpreter_8h}\index{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/\+G\+U\+I/interpreter/interpreter.\+h@{C\+:/\+Projects/\+S\+V\+N/\+T\+L\+V493\+D/trunk/\+Generic Library/src/\+G\+U\+I/interpreter/interpreter.\+h}}
+
+
+Interpret and execute commands received from the U\+A\+RT interface.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{interpreter_8h_a5fa1c8ed1e6073b589a68a3fac7d621e}\label{interpreter_8h_a5fa1c8ed1e6073b589a68a3fac7d621e}} 
+enum \mbox{\hyperlink{interpreter_8h_a5fa1c8ed1e6073b589a68a3fac7d621e}{I\+T\+P\+\_\+cmd\+\_\+t}} \{ \newline
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+Connect\+\_\+\+L\+E\+G\+A\+CY} = (uint8\+\_\+t)(64), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+G\+E\+T\+\_\+\+F\+W\+\_\+\+V\+E\+R\+S\+I\+ON} = (uint8\+\_\+t)(82), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+S\+T\+A\+R\+T\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+R\+E\+A\+D\+O\+UT} = (uint8\+\_\+t)(203), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+S\+T\+O\+P\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+R\+E\+A\+D\+O\+UT} = (uint8\+\_\+t)(204), 
+\newline
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+G\+E\+T\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+T\+Y\+PE} = (uint8\+\_\+t)(210), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+M\+C\+M\+\_\+\+M\+O\+DE} = (uint8\+\_\+t)(220), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+M\+O\+DE} = (uint8\+\_\+t)(221), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+U\+L\+T\+R\+A\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+M\+O\+DE} = (uint8\+\_\+t)(222), 
+\newline
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+F\+A\+S\+T\+\_\+\+M\+O\+DE} = (uint8\+\_\+t)(223), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+W\+U\+\_\+\+D\+I\+S\+A\+B\+LE} = (uint8\+\_\+t)(230), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+W\+U\+\_\+\+E\+N\+A\+B\+LE} = (uint8\+\_\+t)(231), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+X2\+\_\+\+D\+I\+S\+A\+B\+LE} = (uint8\+\_\+t)(232), 
+\newline
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+X2\+\_\+\+E\+N\+A\+B\+LE} = (uint8\+\_\+t)(233), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+I\+I\+C\+\_\+\+A\+D\+DR} = (uint8\+\_\+t)(100), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+T\+L\+\_\+mag} = (uint8\+\_\+t)(102), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+X2} = (uint8\+\_\+t)(103), 
+\newline
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+AM} = (uint8\+\_\+t)(104), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+DT} = (uint8\+\_\+t)(105), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+P\+RD} = (uint8\+\_\+t)(106), 
+{\bfseries I\+T\+P\+\_\+\+C\+M\+D\+\_\+\+T\+E\+S\+T\+\_\+\+A\+W2\+B6\+\_\+\+T\+R\+IG} = (uint8\+\_\+t)(107)
+ \}
+\begin{DoxyCompactList}\small\item\em Supported U\+A\+RT commands. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{interpreter_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}\label{interpreter_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}} 
+enum \mbox{\hyperlink{interpreter_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \{ {\bfseries I\+T\+P\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK} = (uint8\+\_\+t)1, 
+{\bfseries I\+T\+P\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+OK} = (uint8\+\_\+t)0
+ \}
+\begin{DoxyCompactList}\small\item\em Interpreter command status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{interpreter_8h_a5fa62c4d6700de4f6a4376917d7bd85b}\label{interpreter_8h_a5fa62c4d6700de4f6a4376917d7bd85b}} 
+void \mbox{\hyperlink{interpreter_8h_a5fa62c4d6700de4f6a4376917d7bd85b}{I\+T\+P\+\_\+\+P\+C\+\_\+commands\+\_\+handle}} (void)
+\begin{DoxyCompactList}\small\item\em Check for pending commands from U\+A\+RT and handle them. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interpret and execute commands received from the U\+A\+RT interface. 
+
