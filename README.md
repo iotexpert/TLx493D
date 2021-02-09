@@ -1,6 +1,6 @@
 # XENSIV TLx493D 3D magentic sensor library for use with PSoC® 6
 
-This is a driver library to interface with an Infineon XENSIV TLx493D 3D magentic sensor using a PSOC 6. It is based on the [XENSIV TLx493D Library](ttps://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/3d-magnetics/#!tools).
+This is a driver library to interface with an Infineon XENSIV TLx493D 3D magentic sensor using a PSOC 6. It is based on the [XENSIV TLx493D Library](https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/3d-magnetics/#!tools).
 
 The library is compatible with the following sensors:
 - TLV493D-A1B6
