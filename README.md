@@ -16,19 +16,21 @@ The src directory contains all source code for this library. The PSoC sub-direct
 
 To use the library:
 
-1. Include the header file PSoC\_TLx\_interface.h.
+1. Include the header file *PSoC\_TLx\_interface.h*.
 
-2. Call the function TLxI2CInit to initialize the I2C interface. The user specifies the SDA pin, SCL pin, sensor I2C address (7-bit), clock speed, and PSoC clock to use.
+2. If you want to use Joystick position calculations, include *TLxJoystick.h*.
+
+3. Call the function *TLxI2CInit* to initialize the I2C interface. The user specifies the SDA pin, SCL pin, sensor I2C address (7-bit), clock speed, and PSoC clock to use.
 
     - Setting the I2C address to 0 will use a default address of 0x35 (which is 0x6A shifted right by one to turn the 8-bit address into a 7-bit address).
     - Setting the Speed to 0 will use a default speed of 115200.
     - Setting the Clock to NULL will auto-assign a clock with the appropriate speed.
 
-3. Call the function TLx493D\_init to initialize the sensor.
+4. Call the function *TLx493D\_init* to initialize the sensor.
 
-4. Call TLx403D\_set\_operation\_mode to setup the sensor's mode. For simple operation, use TLx493D\_OP\_MODE\_MCM** for the argument.
+5. Call *TLx403D\_set\_operation\_mode* to setup the sensor's mode. For simple operation, use *TLx493D\_OP\_MODE\_MCM* for the argument.
 
-5. Call TLx403D\_read\_frame with a pointer to a structur of type TLx493D\_data\_frame\_t to read sensor data. The structure declaration is:
+6. Call *TLx403D\_read\_frame* with a pointer to a structure of type *TLx493D\_data\_frame\_t* to read sensor data. The structure declaration is:
 
         typedef struct {
             int16_t x;      // Magnetic field intensity raw value on the X axis
@@ -37,11 +39,21 @@ To use the library:
             int16_t temp;   // Raw Temperature value
         } TLx493D_data_frame_t;
 
+7. Call *TLxJoystickCovertXY* wioth a pointer top the frame and a pointer to a result structure to convert the frame into Joystick X and Y position. The result structure declaration is:
+
+        typedef struct {
+            int8_t x;
+            int8_t y;
+        } TLxJoyStickXY_t;
+
 **Example Code**
 
 The folowing code will initialize the sensor and will then read values and print results every 200ms.
 
     #include "PSoC_TLx_interface.h"
+
+    TLx493D_data_frame_t frame;
+    TLxJoystickCovertXY xyResult;
 
     TLxI2CInit( CYBSP_I2C_SDA, CYBSP_I2C_SCL, 0, 0 ,NULL );
 
@@ -52,7 +64,8 @@ The folowing code will initialize the sensor and will then read values and print
     for (;;)
     {
         TLx493D_read_frame(&frame);
-        printf("X:%d, Y:%d, Z:%d, Temp:%d\n", frame.x, frame.y, frame.z, frame.temp);
+        TLxJoystickCovertXY(&frame, &xyResult);
+        printf("X:%d, Y:%d \n", xyResult.x, xyResult.y);
         Cy_SysLib_Delay(200);
     }
 
