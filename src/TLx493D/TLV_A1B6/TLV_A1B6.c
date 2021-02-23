@@ -217,6 +217,7 @@ int32_t TLV493D_A1B6_read_frame(TLV493D_data_t *data, TLx493D_data_frame_t *fram
 	bool fast_mode;
 	int32_t error;
 
+	temperature = 0;
 
 	// use local data if no data struct provided
 	if (NULL == data) {
